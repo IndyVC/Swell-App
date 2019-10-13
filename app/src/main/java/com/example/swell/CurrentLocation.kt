@@ -21,6 +21,7 @@ class CurrentLocation : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentCurrentLocationBinding>(inflater,
             R.layout.fragment_current_location,container,false)
+
         return binding.root
     }
 

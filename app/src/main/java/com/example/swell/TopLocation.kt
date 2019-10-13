@@ -22,6 +22,7 @@ class TopLocation : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentTopLocationsBinding>(inflater,
             R.layout.fragment_top_locations,container,false)
+
         return binding.root
     }
 

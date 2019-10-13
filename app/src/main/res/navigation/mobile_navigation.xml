@@ -7,11 +7,11 @@
     <fragment
         android:id="@+id/navigation_search_spot"
         android:name="com.example.swell.SearchSpot"
-        android:label="SearchSpot" />
+        android:label="Search spot" />
     <fragment
         android:id="@+id/navigation_current_location"
         android:name="com.example.swell.CurrentLocation"
-        android:label="CurrentLocation" />
+        android:label="Current location" />
     <fragment
         android:id="@+id/navigation_favourites"
         android:name="com.example.swell.Favourites"
@@ -19,5 +19,5 @@
     <fragment
         android:id="@+id/navigation_top_location"
         android:name="com.example.swell.TopLocation"
-        android:label="TopLocation" />
+        android:label="Top location" />
 </navigation>

@@ -23,6 +23,7 @@ class Favourites : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentFavouritesBinding>(inflater,
             R.layout.fragment_favourites,container,false)
+
         return binding.root
     }
 

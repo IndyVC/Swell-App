@@ -10,4 +10,6 @@
     <string name="title_current_location">Current Location</string>
     <string name="title_favourites">Favourites</string>
     <string name="title_top_location">Top Location</string>
+    <string name="placeholder_search_spot">Search spot</string>
+    <string name="lbl_myFavourtites">My favourites</string>
 </resources>
