@@ -1,9 +1,8 @@
-package com.example.swell
+package com.example.swell.ui
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -12,7 +11,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.swell.R
 import com.example.swell.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import info.androidhive.fontawesome.FontDrawable
 
 class MainActivity : AppCompatActivity(){
@@ -29,9 +30,11 @@ class MainActivity : AppCompatActivity(){
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_search_spot, R.id.navigation_current_location, R.id.navigation_favourites, R.id.navigation_top_location
+                R.id.searchSpotFragment
             )
         )
+
+
         NavigationUI.setupActionBarWithNavController(this, navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -51,8 +54,11 @@ class MainActivity : AppCompatActivity(){
     fun initBottomNavigation() {
         val navigationView = binding.navView
         val icons = intArrayOf(
-            R.string.fa_search_solid,R.string.fa_map_marked_alt_solid,R.string.fa_heart_solid,R.string.fa_star_solid
-        );
+            R.string.fa_search_solid
+//            R.string.fa_map_marked_alt_solid,
+//            R.string.fa_heart_solid,
+//            R.string.fa_star_solid
+        )
 
         renderMenuIcons(navigationView.menu, icons, true, false)
     }
@@ -68,9 +74,14 @@ class MainActivity : AppCompatActivity(){
 
             if (!menuItem.hasSubMenu()) {
                 val drawable: FontDrawable = FontDrawable(this, icons[i], isSolid, isBrand)
-                drawable.setTextColor(ContextCompat.getColor(this, R.color.colorAccent))
-                drawable.setTextSize(22.toFloat())
-                menu.getItem(i).setIcon(drawable)
+                drawable.setTextColor(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.white
+                    )
+                )
+                drawable.textSize = 22.toFloat()
+                menu.getItem(i).icon = drawable
             }
             i++
         }
