@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="spot"
+            type="com.example.swell.domain.Spot" />
+
+        <variable
+            name="currentSpotListener"
+            type="com.example.swell.adapters.CurrentSpotListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->currentSpotListener.onClick(spot)}"
+        android:padding="@dimen/list_item_padding">
+
+        <TextView
+            android:id="@+id/lbl_listItemSpot_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:date="@{spot}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lbl_listItemSpot_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_listItemSpot_date"
+            app:time="@{spot}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

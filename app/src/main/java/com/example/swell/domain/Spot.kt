@@ -4,6 +4,7 @@ import java.util.*
 
 
 data class Spot(
+    val spotId: Long,
     val magicSeaWeedSpotId: Long?,
     val timestamp: Date?,
     val localTimestamp: Date?,

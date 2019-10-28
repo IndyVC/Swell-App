@@ -3,4 +3,7 @@
     <item
         android:id="@+id/searchSpotFragment"
         android:title="@string/title_search_spot" />
+    <item
+        android:id="@+id/currentSpotFragment"
+        android:title="@string/title_current_spot" />
 </menu>

@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity(){
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.searchSpotFragment
+                R.id.searchSpotFragment,
+                R.id.currentSpotFragment
             )
         )
 
@@ -54,8 +55,8 @@ class MainActivity : AppCompatActivity(){
     fun initBottomNavigation() {
         val navigationView = binding.navView
         val icons = intArrayOf(
-            R.string.fa_search_solid
-//            R.string.fa_map_marked_alt_solid,
+            R.string.fa_search_solid,
+            R.string.fa_map_marked_alt_solid
 //            R.string.fa_heart_solid,
 //            R.string.fa_star_solid
         )

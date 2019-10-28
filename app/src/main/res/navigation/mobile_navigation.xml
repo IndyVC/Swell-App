@@ -6,5 +6,20 @@
     <fragment
         android:id="@+id/searchSpotFragment"
         android:name="com.example.swell.ui.SearchSpotFragment"
-        android:label="SearchSpotFragment" />
+        android:label="SearchSpotFragment">
+        <action
+            android:id="@+id/action_searchSpotFragment_to_currentSpotFragment"
+            app:destination="@id/currentSpotFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/currentSpotFragment"
+        android:name="com.example.swell.ui.CurrentSpotFragment"
+        android:label="CurrentSpotFragment">
+        <argument
+            android:name="spotName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_currentSpotFragment_to_searchSpotFragment"
+            app:destination="@id/searchSpotFragment" />
+    </fragment>
 </navigation>

@@ -12,21 +12,22 @@ import kotlinx.coroutines.withContext
 
 class SpotRepository(private val database: SpotDatabase) {
 
-    val spots: LiveData<List<Spot>> = Transformations.map(database.spotDao.getAllSpots()) {
-        it.asDomainModel(null)
+    var spots: LiveData<List<Spot>> = Transformations.map(database.spotDao.getCurrentSpotData()) {
+        it.asDomainModel()
     }
 
-    val nazare: LiveData<List<Spot>> = Transformations.map(database.spotDao.getNazare()) {
-        it.asDomainModel(194L)
+    var newestSpot: LiveData<Spot> = Transformations.map(database.spotDao.getNewestSpotData()) {
+        listOf(it).asDomainModel()[0]
     }
 
-    val dePanne: LiveData<List<Spot>> = Transformations.map(database.spotDao.getDePanne()) {
-        it.asDomainModel(4048L)
+    init {
+        spots = Transformations.map(database.spotDao.getCurrentSpotData()) {
+            it.asDomainModel()
+        }
     }
-
     suspend fun retrieveSpot(id: Long) {
         withContext(Dispatchers.IO) {
-            val spots = Network.spots.getNazare(id, "eu").await()
+            val spots = Network.spots.getSpot(id, "eu").await()
             database.spotDao.deleteAll()
             database.spotDao.insertAll(*spots.asDatabaseModel(id))
         }

@@ -108,10 +108,11 @@ data class DatabaseChart(
     val chart_sst: String?
 )
 
-fun List<DatabaseSpot>.asDomainModel(magicSeaWeedSpotId: Long?): List<Spot> {
+fun List<DatabaseSpot>.asDomainModel(): List<Spot> {
     return map {
         Spot(
-            magicSeaWeedSpotId = magicSeaWeedSpotId,
+            spotId = it.spotId,
+            magicSeaWeedSpotId = it.magicSeaWeedSpotId,
             timestamp = Network.getDate(it.timestamp),
             localTimestamp = Network.getDate(it.localTimestamp),
             issueTimestamp = Network.getDate(it.issueTimestamp),

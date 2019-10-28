@@ -8,13 +8,10 @@ import androidx.room.*
 interface SpotDao {
 
     @Query("select * from DatabaseSpot")
-    fun getAllSpots(): LiveData<List<DatabaseSpot>>
+    fun getCurrentSpotData(): LiveData<List<DatabaseSpot>>
 
-    @Query("select * from DatabaseSpot where magicSeaWeedSpotId = 194")
-    fun getNazare(): LiveData<List<DatabaseSpot>>
-
-    @Query("select * from DatabaseSpot where magicSeaWeedSpotId = 4048")
-    fun getDePanne(): LiveData<List<DatabaseSpot>>
+    @Query("select * from DatabaseSpot where spotId = (select spotId from DatabaseSpot order by localTimestamp desc limit 1)")
+    fun getNewestSpotData(): LiveData<DatabaseSpot>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg spots: DatabaseSpot)

@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.example.swell.R
 import com.example.swell.databinding.FragmentSearchSpotBinding
-import com.example.swell.viewmodels.SpotViewModel
-import timber.log.Timber
 
 /**
  * A simple [Fragment] subclass.
@@ -29,23 +27,20 @@ class SearchSpotFragment : Fragment() {
             false
         )
 
+        // Changing actionbar title
+        (activity as MainActivity).supportActionBar?.title = (getString(R.string.title_search_spot))
+
         val application = requireNotNull(this.activity).application
-        val viewModel = SpotViewModel(application)
+        //val viewModel = SearchSpotViewModel(application)
 
         binding.btnFragSearchSpotSearch.setOnClickListener {
             val spotName = binding.inputFragSearchSpotSpotName
-            viewModel.retrieveSpot(spotName.text.toString())
+            view?.findNavController()?.navigate(
+                SearchSpotFragmentDirections.actionSearchSpotFragmentToCurrentSpotFragment(spotName.text.toString())
+            )
+
         }
 
-        viewModel.dePanne.observe(viewLifecycleOwner, Observer {
-            val spots = viewModel.dePanne
-            Timber.i("Stop")
-        })
-
-        viewModel.nazare.observe(viewLifecycleOwner, Observer {
-            val spots = viewModel.nazare
-            Timber.i("Stop")
-        })
         return binding.root
     }
 

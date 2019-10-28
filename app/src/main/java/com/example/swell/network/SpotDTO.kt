@@ -184,6 +184,7 @@ fun List<NetworkSpot>.asDatabaseModel(magicSeaWeedSpotId: Long): Array<DatabaseS
 fun List<NetworkSpot>.asDomainModel(): List<Spot> {
     return map {
         Spot(
+            spotId = 0L,
             magicSeaWeedSpotId = null,
             timestamp = Network.getDate(it.timestamp),
             localTimestamp = Network.getDate(it.localTimestamp),

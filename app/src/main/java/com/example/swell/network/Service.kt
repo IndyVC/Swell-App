@@ -12,7 +12,7 @@ import java.util.*
 
 interface SpotService {
     @GET(".")
-    fun getNazare(@Query("spot_id") spotId: Long, @Query("unit") unit: String): Deferred<List<NetworkSpot>>
+    fun getSpot(@Query("spot_id") spotId: Long, @Query("unit") unit: String): Deferred<List<NetworkSpot>>
 }
 
 /**
