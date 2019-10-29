@@ -66,3 +66,17 @@ fun TextView.setFullDate(item: Spot?) {
         text = formatted
     }
 }
+
+@BindingAdapter("temperature")
+fun TextView.setTemperature(item: Spot?) {
+    item?.let {
+        text = String.format("%s °C", item.condition?.temperature.toString())
+    }
+}
+
+@BindingAdapter("windChill")
+fun TextView.windChill(item: Spot?) {
+    item?.let {
+        text = String.format("%s °C", item.wind?.chill.toString())
+    }
+}
