@@ -1,14 +1,14 @@
 package com.example.swell.domain
 
-import java.util.*
+import org.threeten.bp.LocalDateTime
 
 
 data class Spot(
     val spotId: Long,
     val magicSeaWeedSpotId: Long?,
-    val timestamp: Date?,
-    val localTimestamp: Date?,
-    val issueTimestamp: Date?,
+    val dateTime: LocalDateTime?,
+    val localDateTime: LocalDateTime?,
+    val issueDateTime: LocalDateTime?,
     val fadedRating: Double?,
     val solidRating: Double?,
     val swell: Swell?,

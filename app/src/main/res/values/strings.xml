@@ -23,4 +23,11 @@
     <string name="login_failed">"Login failed"</string>
     <string name="hint_searchSpot_searchSpot">Search spot</string>
     <string name="title_current_spot">Current Spot</string>
+    <string name="lbl_altitude">Altitude</string>
+    <string name="lbl_longitude">Longitude</string>
+    <string name="title_session">Session</string>
+    <string name="btn_start_session">Start session</string>
+    <string name="lbl_max_hoogte">Maximum</string>
+    <string name="lbl_min_hoogte">Minimum</string>
+    <string name="lbl_period">Period</string>
 </resources>

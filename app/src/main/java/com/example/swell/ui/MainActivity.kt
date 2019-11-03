@@ -31,7 +31,8 @@ class MainActivity : AppCompatActivity(){
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.searchSpotFragment,
-                R.id.currentSpotFragment
+                R.id.currentSpotFragment,
+                R.id.sessionFragment
             )
         )
 
@@ -56,8 +57,8 @@ class MainActivity : AppCompatActivity(){
         val navigationView = binding.navView
         val icons = intArrayOf(
             R.string.fa_search_solid,
-            R.string.fa_map_marked_alt_solid
-//            R.string.fa_heart_solid,
+            R.string.fa_map_marked_alt_solid,
+            R.string.fa_snowboarding_solid
 //            R.string.fa_star_solid
         )
 

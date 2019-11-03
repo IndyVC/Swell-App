@@ -113,9 +113,9 @@ fun List<DatabaseSpot>.asDomainModel(): List<Spot> {
         Spot(
             spotId = it.spotId,
             magicSeaWeedSpotId = it.magicSeaWeedSpotId,
-            timestamp = Network.getDate(it.timestamp),
-            localTimestamp = Network.getDate(it.localTimestamp),
-            issueTimestamp = Network.getDate(it.issueTimestamp),
+            dateTime = Network.getLocalDate(it.timestamp),
+            localDateTime = Network.getLocalDate(it.localTimestamp),
+            issueDateTime = Network.getLocalDate(it.issueTimestamp),
             fadedRating = it.fadedRating,
             solidRating = it.solidRating,
             swell = Swell(

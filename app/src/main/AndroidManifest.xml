@@ -3,6 +3,8 @@
     package="com.example.swell">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".SwellApplication"
@@ -12,9 +14,7 @@
         android:roundIcon="@mipmap/logo_swell_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
-
-        >
+        android:usesCleartextTraffic="true">
 
         <activity
             android:name=".ui.MainActivity"

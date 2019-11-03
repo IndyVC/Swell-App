@@ -39,41 +39,27 @@
             app:solid_icon="true" />
 
         <ImageView
-            android:id="@+id/img_currentSpot_height"
-            android:layout_width="80dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_currentSpot_wave"
-            app:layout_constraintEnd_toStartOf="@+id/img_currentSpot_wave"
-            app:layout_constraintHorizontal_bias="0.14"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/img_currentSpot_wave"
-            app:srcCompat="@drawable/height" />
-
-        <ImageView
             android:id="@+id/img_currentSpot_period"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_currentSpot_wave"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_period"
             app:srcCompat="@drawable/period" />
 
         <ImageView
-            android:id="@+id/img_currentSpot_minBreakHeight"
+            android:id="@+id/img_currentSpot_minHeight"
             android:layout_width="100dp"
             android:layout_height="180dp"
             app:layout_constraintBottom_toTopOf="@+id/img_currentSpot_period"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.87"
-            app:layout_constraintStart_toEndOf="@+id/img_currentSpot_height"
+            app:layout_constraintEnd_toEndOf="@+id/img_currentSpot_wave"
+            app:layout_constraintStart_toEndOf="@+id/img_currentSpot_maxHeight"
             app:layout_constraintTop_toTopOf="@+id/img_currentSpot_wave"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/min_break_height" />
 
         <ImageView
-            android:id="@+id/img_currentSpot_maxBreakHeight"
+            android:id="@+id/img_currentSpot_maxHeight"
             android:layout_width="100dp"
             android:layout_height="48dp"
             app:layout_constraintBottom_toTopOf="@+id/img_currentSpot_wave"
@@ -86,52 +72,38 @@
             android:id="@+id/img_currentSpot_wave"
             android:layout_width="350dp"
             android:layout_height="200dp"
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="64dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_currentSpot_spotName"
+            app:layout_constraintVertical_bias="0.31"
             app:srcCompat="@drawable/wave" />
 
         <TextView
-            android:id="@+id/lbl_currentSpot_maxBreakHeight"
+            android:id="@+id/lbl_currentSpot_maxHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_medium"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/img_currentSpot_maxBreakHeight"
-            app:layout_constraintEnd_toEndOf="@+id/img_currentSpot_maxBreakHeight"
-            app:layout_constraintStart_toStartOf="@+id/img_currentSpot_maxBreakHeight"
-            app:maxBreakingHeight="@{viewModel.currentSpot}"
+            app:layout_constraintBottom_toTopOf="@+id/img_currentSpot_maxHeight"
+            app:layout_constraintEnd_toEndOf="@+id/img_currentSpot_maxHeight"
+            app:layout_constraintStart_toStartOf="@+id/img_currentSpot_maxHeight"
+            app:maxHeight="@{viewModel.currentSpot}"
             tools:text="5m" />
 
         <TextView
-            android:id="@+id/lbl_currentSpot_minBreakHeight"
+            android:id="@+id/lbl_currentSpot_minHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_medium"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/img_currentSpot_minBreakHeight"
-            app:layout_constraintEnd_toEndOf="@+id/img_currentSpot_minBreakHeight"
-            app:layout_constraintStart_toStartOf="@+id/img_currentSpot_minBreakHeight"
-            app:minBreakingHeight="@{viewModel.currentSpot}" />
-
-        <TextView
-            android:id="@+id/lbl_currentSpot_height"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="24sp"
-            app:height="@{viewModel.currentSpot}"
-            app:layout_constraintBottom_toTopOf="@+id/img_currentSpot_height"
-            app:layout_constraintEnd_toStartOf="@+id/img_currentSpot_wave"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/img_currentSpot_height"
-            tools:text="6.5m" />
+            app:layout_constraintBottom_toTopOf="@+id/img_currentSpot_minHeight"
+            app:layout_constraintEnd_toEndOf="@+id/img_currentSpot_minHeight"
+            app:layout_constraintStart_toStartOf="@+id/img_currentSpot_minHeight"
+            app:minHeight="@{viewModel.currentSpot}" />
 
         <TextView
             android:id="@+id/lbl_currentSpot_period"
@@ -158,25 +130,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:spotName="@{viewModel.currentSpot}" />
 
-        <TextView
-            android:id="@+id/lbl_currentSpot_localTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:fullDate="@{viewModel.currentSpot}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lbl_currentSpot_spotName" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/gradient_recycler_view"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lbl_currentSpot_period" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/lbl_currentSpot_temperature"
@@ -198,6 +160,48 @@
             app:layout_constraintEnd_toStartOf="@+id/fontTextView3"
             app:layout_constraintTop_toTopOf="@+id/fontTextView3"
             app:windChill="@{viewModel.currentSpot}" />
+
+        <Button
+            android:id="@+id/btn_currentSpot_startSession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/gradient"
+            android:padding="@dimen/material_input"
+            android:text="@string/btn_start_session"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_currentSpot_period" />
+
+        <TextView
+            android:id="@+id/lbl_maximum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/lbl_max_hoogte"
+            app:layout_constraintEnd_toEndOf="@+id/img_currentSpot_maxHeight"
+            app:layout_constraintStart_toStartOf="@+id/img_currentSpot_maxHeight"
+            app:layout_constraintTop_toTopOf="@+id/img_currentSpot_maxHeight" />
+
+        <TextView
+            android:id="@+id/lbl_minimum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/lbl_min_hoogte"
+            app:layout_constraintEnd_toEndOf="@+id/img_currentSpot_minHeight"
+            app:layout_constraintStart_toStartOf="@+id/img_currentSpot_minHeight"
+            app:layout_constraintTop_toTopOf="@+id/img_currentSpot_minHeight" />
+
+        <TextView
+            android:id="@+id/lbl_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_period"
+            app:layout_constraintEnd_toEndOf="@+id/img_currentSpot_period"
+            app:layout_constraintStart_toStartOf="@+id/img_currentSpot_period"
+            app:layout_constraintTop_toBottomOf="@+id/img_currentSpot_wave" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,11 +4,14 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred
+import org.threeten.bp.Instant
+import org.threeten.bp.LocalDateTime
+import org.threeten.bp.ZoneId
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
-import java.util.*
+
 
 interface SpotService {
     @GET(".")
@@ -39,10 +42,13 @@ object Network {
     val spots = retrofit.create(SpotService::class.java)
 
 
-    fun getDate(timestamp: Long?): Date? {
+    fun getLocalDate(timestamp: Long?): LocalDateTime? {
         try {
-            val date = Date(timestamp!! * 1000L)
-            return date
+            return LocalDateTime.ofInstant(
+                Instant.ofEpochMilli(timestamp!! * 1000),
+                ZoneId.systemDefault()
+            )
+
         } catch (e: Exception) {
             throw IllegalArgumentException()
         }
