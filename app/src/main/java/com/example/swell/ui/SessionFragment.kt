@@ -14,7 +14,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.swell.R
 import com.example.swell.databinding.FragmentSessionBinding
-import timber.log.Timber
 
 /**
  * A simple [Fragment] subclass.
@@ -42,7 +41,7 @@ class SessionFragment : Fragment(), LocationListener {
             val locationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
             locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER,
-                0, 0F, this
+                0, 5F, this
             )
         } catch (e: SecurityException) {
             e.printStackTrace()
@@ -60,7 +59,6 @@ class SessionFragment : Fragment(), LocationListener {
     override fun onLocationChanged(location: Location?) {
         binding.txtSessionFragmentAltitude.text = location?.altitude.toString()
         binding.txtSessionFragmentLongitude.text = location?.longitude.toString()
-        Timber.i("REACHED")
     }
 
     override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
