@@ -2,6 +2,7 @@ package com.example.swell.ui
 
 
 import android.content.Context.LOCATION_SERVICE
+import android.content.Intent
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
@@ -12,8 +13,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.example.swell.R
 import com.example.swell.databinding.FragmentSessionBinding
+import com.example.swell.viewmodels.SessionViewModel
+import com.example.swell.viewmodels.SessionViewModelFactory
 
 /**
  * A simple [Fragment] subclass.
@@ -21,6 +25,8 @@ import com.example.swell.databinding.FragmentSessionBinding
 class SessionFragment : Fragment(), LocationListener {
 
     lateinit var binding: FragmentSessionBinding
+    lateinit var viewModel: SessionViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,6 +42,11 @@ class SessionFragment : Fragment(), LocationListener {
         // Changing actionbar title
         (activity as MainActivity).supportActionBar?.title = (getString(R.string.title_search_spot))
 
+        // Creating ViewModel
+        val application = requireNotNull(activity).application
+        val viewModelFactory = SessionViewModelFactory(application = application)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(SessionViewModel::class.java)
+
         // Activate LocationListener
         try {
             val locationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
@@ -47,18 +58,26 @@ class SessionFragment : Fragment(), LocationListener {
             e.printStackTrace()
         }
 
-        // Binding spotname
-        if (arguments != null) {
-            val args = CurrentSpotFragmentArgs.fromBundle(arguments!!)
-            binding.lblSpotName.text = args.spotName
+        // Stop session
+        binding.btnFragSessionStopSession.setOnClickListener {
+            viewModel.stopListening()
+            val intent: Intent = Intent(context, MapsActivity::class.java)
+            intent.putExtra("locations", viewModel.locations)
+            startActivity(intent)
         }
+
 
         return binding.root
     }
 
     override fun onLocationChanged(location: Location?) {
-        binding.txtSessionFragmentAltitude.text = location?.altitude.toString()
-        binding.txtSessionFragmentLongitude.text = location?.longitude.toString()
+        if (viewModel.listening) {
+            binding.lblFragSessionLatitude.text = location?.latitude.toString()
+            binding.lblFragSessionLongitude.text = location?.longitude.toString()
+            viewModel.locations.add(location)
+        } else {
+            binding.lblFragSessionListening.text = "Stopped listening"
+        }
     }
 
     override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {

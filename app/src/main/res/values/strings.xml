@@ -30,4 +30,8 @@
     <string name="lbl_max_hoogte">Maximum</string>
     <string name="lbl_min_hoogte">Minimum</string>
     <string name="lbl_period">Period</string>
+    <string name="btn_stop_session">Stop session</string>
+    <string name="lbl_latitude">Latitude</string>
+    <string name="app_maps">Google Maps</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

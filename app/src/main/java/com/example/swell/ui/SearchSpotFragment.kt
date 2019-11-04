@@ -31,7 +31,9 @@ class SearchSpotFragment : Fragment() {
         (activity as MainActivity).supportActionBar?.title = (getString(R.string.title_search_spot))
 
         val application = requireNotNull(this.activity).application
-        //val viewModel = SearchSpotViewModel(application)
+//        val viewModelFactory = SearchSpotViewModelFactory(application)
+//        val viewModel = ViewModelProviders.of(this,viewModelFactory).get(SearchSpotViewModel::class.java)
+
 
         binding.btnFragSearchSpotSearch.setOnClickListener {
             val spotName = binding.inputFragSearchSpotSpotName

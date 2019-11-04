@@ -15,23 +15,20 @@
         android:id="@+id/currentSpotFragment"
         android:name="com.example.swell.ui.CurrentSpotFragment"
         android:label="CurrentSpotFragment">
-        <argument
-            android:name="spotName"
-            app:argType="string" />
         <action
             android:id="@+id/action_currentSpotFragment_to_searchSpotFragment"
             app:destination="@id/searchSpotFragment" />
         <action
             android:id="@+id/action_currentSpotFragment_to_sessionFragment"
             app:destination="@id/sessionFragment" />
+        <argument
+            android:name="spotName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/sessionFragment"
         android:name="com.example.swell.ui.SessionFragment"
         android:label="SessionFragment">
-        <argument
-            android:name="spotName"
-            app:argType="string" />
         <action
             android:id="@+id/action_sessionFragment_to_currentSpotFragment"
             app:destination="@id/currentSpotFragment" />

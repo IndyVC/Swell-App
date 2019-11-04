@@ -12,7 +12,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class CurrentSpotViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -29,7 +28,6 @@ class CurrentSpotViewModel(application: Application) : AndroidViewModel(applicat
         get() = _currentSpot
 
     init {
-        Timber.i("TEST")
         _currentSpot.value = spots?.value?.last()
     }
 

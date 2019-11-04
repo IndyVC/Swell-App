@@ -53,9 +53,9 @@ class CurrentSpotFragment : Fragment() {
         val adapater = SpotAdapter(CurrentSpotListener { spotId ->
             viewModel.setCurrentSpot(spotId)
         })
-        binding.recyclerview.layoutManager =
+        binding.recyclerFragCurrentSpotTimes.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.recyclerview.adapter = adapater
+        binding.recyclerFragCurrentSpotTimes.adapter = adapater
         binding.lifecycleOwner = this
 
         // Observing changes
@@ -77,7 +77,7 @@ class CurrentSpotFragment : Fragment() {
         binding.btnCurrentSpotStartSession.setOnClickListener {
             val spotName = ConvertSpot.idToName(viewModel.currentSpot.value?.magicSeaWeedSpotId)
             view?.findNavController()?.navigate(
-                CurrentSpotFragmentDirections.actionCurrentSpotFragmentToSessionFragment(spotName)
+                CurrentSpotFragmentDirections.actionCurrentSpotFragmentToSessionFragment()
             )
         }
 

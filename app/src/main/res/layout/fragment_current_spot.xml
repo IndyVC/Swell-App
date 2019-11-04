@@ -15,7 +15,7 @@
         android:layout_height="match_parent">
 
         <info.androidhive.fontawesome.FontTextView
-            android:id="@+id/fontTextView2"
+            android:id="@+id/icon_temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -27,7 +27,7 @@
             app:solid_icon="true" />
 
         <info.androidhive.fontawesome.FontTextView
-            android:id="@+id/fontTextView3"
+            android:id="@+id/icon_wind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lbl_period"
+            app:layout_constraintTop_toBottomOf="@+id/txt_period"
             app:srcCompat="@drawable/period" />
 
         <ImageView
@@ -131,7 +131,7 @@
             app:spotName="@{viewModel.currentSpot}" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
+            android:id="@+id/recycler_fragCurrentSpot_times"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -146,9 +146,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/roboto_medium"
-            app:layout_constraintBottom_toBottomOf="@+id/fontTextView2"
-            app:layout_constraintStart_toEndOf="@+id/fontTextView2"
-            app:layout_constraintTop_toTopOf="@+id/fontTextView2"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_temperature"
+            app:layout_constraintStart_toEndOf="@+id/icon_temperature"
+            app:layout_constraintTop_toTopOf="@+id/icon_temperature"
             app:temperature="@{viewModel.currentSpot}" />
 
         <TextView
@@ -156,9 +156,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/fontTextView3"
-            app:layout_constraintEnd_toStartOf="@+id/fontTextView3"
-            app:layout_constraintTop_toTopOf="@+id/fontTextView3"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_wind"
+            app:layout_constraintEnd_toStartOf="@+id/icon_wind"
+            app:layout_constraintTop_toTopOf="@+id/icon_wind"
             app:windChill="@{viewModel.currentSpot}" />
 
         <Button
@@ -167,7 +167,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/gradient"
-            android:padding="@dimen/material_input"
+            android:padding="@dimen/btn_padding"
             android:text="@string/btn_start_session"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
@@ -175,7 +175,7 @@
             app:layout_constraintTop_toBottomOf="@+id/lbl_currentSpot_period" />
 
         <TextView
-            android:id="@+id/lbl_maximum"
+            android:id="@+id/txt_maximum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -185,7 +185,7 @@
             app:layout_constraintTop_toTopOf="@+id/img_currentSpot_maxHeight" />
 
         <TextView
-            android:id="@+id/lbl_minimum"
+            android:id="@+id/txt_minimum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -195,7 +195,7 @@
             app:layout_constraintTop_toTopOf="@+id/img_currentSpot_minHeight" />
 
         <TextView
-            android:id="@+id/lbl_period"
+            android:id="@+id/txt_period"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lbl_period"
